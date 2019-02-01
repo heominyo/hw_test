@@ -107,7 +107,55 @@ void ULListStr::push_front(const std::string& val){
 }
 
 void ULListStr::pop_back(){
-  
+  if(this->size_ == 0) return;
+  Item* tail = this->tail_;
+  tail->last-=1;
+  //this is to delete the string once it goes out of scope
+  std::string toDelete = "";
+  toDelete.swap(tail->val[tail->last]);
+  if(tail->first == tail->last){
+    if(this->head_ == this->tail_){
+      this->head_ = NULL;
+      this->tail_ = NULL;
+    }
+    else{
+      this->tail_ = tail->prev;
+      this->tail_->next = NULL;
+    }
+    delete tail;
+  }
+  this->size_--;
+}
+
+void ULListStr::pop_front(){
+  if(this->size_ == 0) return;
+  Item* head = this->head_;
+  //this swaps the string data so that it can go out of scope
+  std::string toDelete = "";
+  toDelete.swap(head->val[head->first]);
+  head->first += 1;
+  if(head->first == head->last){
+    if(this->head_ == this->tail_){
+      this->head_ = NULL;
+      this->tail_ = NULL;
+    }
+    else{
+      this->head_ = head->next;
+      this->head_->prev = NULL;
+    }
+    delete head;
+  }
+  this->size_--;
+}
+
+std::string const & ULListStr::front() const{
+  if(this->size_ == 0) return NULL;
+  return this->head_->val[this->head_->first];
+}
+
+std::string const & ULListStr::back() const{
+  if(this->size_ == 0) return NULL;
+  return this->tail_->val[this->tail_->last-1];
 }
 
 std::string* ULListStr::getValAtLoc(size_t loc) const{

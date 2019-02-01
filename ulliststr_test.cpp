@@ -27,10 +27,27 @@ int main(int argc, char* argv[])
 		"hapy", "by", "dessert", "yay", "end"
 	};
 	for(int i = 0;i<20;i++){
-		list->push_front(arr[i]);
 		list->push_back(arr[i]);
 	}
 	printList(list);
-	cout << list->size() << endl;
+	for(int i = 0;i<5;i++){
+		list->pop_front();
+		list->pop_back();
+	}
+	printList(list);
+	for(int i = 10;i<20;i++){
+		list->push_back(arr[i]);
+	}
+	printList(list);
+	cout << list->front() << endl;
+	cout << list->back() << endl;
+	while(!list->empty()) list->pop_front();
+	list->pop_front();
+	for(int i = 10;i<20;i++){
+		list->push_front(arr[i]);
+	}
+	list->pop_back();
+	printList(list);
+	delete list;
   return 0;
 }
