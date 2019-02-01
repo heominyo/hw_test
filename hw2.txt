@@ -1,0 +1,30 @@
+Homework 2
+
+Problem 1
+	Part a:
+		README.md -> Unmodified
+	Part b:
+		README.md -> Modified
+		fun_problem.txt -> Untracked
+	Part c:
+		README.md -> Staged
+		fun_probem.txt -> Staged
+	Part d:
+		README.md -> Modified
+		fun_problem.txt -> Modified
+	Part e:
+		README.md -> Staged
+		fun_problem.txt -> Unmodified
+	Part f:
+		README.md -> Modified
+
+Problem 3
+	1. map<string, list>: the key could be a string, which would be the name of the playlist or album. The value would be a list, which can is ordered by track number. Since this question wanted a quick retrieval, a map would be optimal because map retrieval is very quick. The list is also optimal as the value because the track number can be the index number, making it another quick grab.
+	
+	2. list: I don't think the quantity is as much of a concern as much as the order. In order the maintain order, probably list would be the easiest to control as well as insert and delete.
+
+	3. map<string, set<string>>: I'm not sure if the actual program is necessary, so I think we can store a list of programs as a set of strings. That makes the key become a string containing the file extension. The value would be a set then containing the list of possible programs. This way we can test in a optimal way if a program works for a certain file extension.
+
+	4. set<string>: Not sure what the identifications are used for. If I were to use it, it would be to make sure if an identification exists or to see how many identifications there are. Since order does not matter, I would stick with set of strings, which would be the names of the TV station identification.
+
+
