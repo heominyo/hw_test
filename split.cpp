@@ -17,14 +17,18 @@ the function below should be the only one in this file.
 void split(Node*& in, Node*& odds, Node*& evens)
 {
   /* Add code here */
+	//base case
 	if(in == NULL) return;
+	//create temp Node
 	int v = in->value;
 	Node* toAdd = new Node(v, NULL);
 	if(v%2 == 0) {
+		//if the value is even, make the next toAdd and recurse to the nexteven
 		evens = toAdd;
 		split(in->next, odds, evens->next);
 	}
 	else {
+		//if the value is odd, make the next toAdd and recurse to the next odd
 		odds = toAdd;
 		split(in->next, odds->next, evens);
 	}
